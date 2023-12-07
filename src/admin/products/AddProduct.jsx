@@ -4,26 +4,43 @@ import axios from "../../api/axios";
 import Sidebar from "../components/Sidebar";
 import { Link } from "react-router-dom";
 import { Button } from "@material-tailwind/react";
-import { IoMdAdd } from "react-icons/io";
 import { Tabs } from "flowbite-react";
 import { FaHome } from "react-icons/fa";
 import { CgProfile } from "react-icons/cg";
 import { RiContactsFill } from "react-icons/ri";
 import { GrFormViewHide } from "react-icons/gr";
 import {
-  Select,
-  Option,
   Input,
   Textarea,
   Checkbox,
 } from "@material-tailwind/react";
 import { MdError } from "react-icons/md";
 import { LuAsterisk } from "react-icons/lu";
+import { useNavigate } from "react-router-dom";
+import { useStateContext } from "../../context/ContextProvider";
+
 const AddProduct = () => {
   const [error_list, setErrors] = useState([]);
   const [categoryList, setCategoryList] = useState([]);
   const [productImage, setProductImage] = useState([]);
   const [message, setMessage] = useState('');
+  const navigate = useNavigate();
+  const { user, getUser,setUser } = useStateContext();
+
+  useEffect(() => {
+    const fetchData = async () => {
+      await getUser(setUser);
+    };
+
+    if (user?.email === "admin@admin.com") {
+      navigate('admin/*');
+    } else {
+      navigate('/login');
+    }
+
+    fetchData();
+  }, [setUser, user?.email, navigate]);
+
   useEffect(() => {
     axios.get(`/api/all-category`).then((res) => {
       if (res.data.status === 200) {

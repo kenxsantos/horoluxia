@@ -9,19 +9,7 @@ import AddProduct from "../products/AddProduct";
 import ViewProduct from "../products/ViewProduct";
 import EditProduct from "../products/EditProduct";
 import ViewOrder from "../order/ViewOrder";
-// import { useNavigate } from 'react-router-dom';
-// import { useStateContext } from '../../context/ContextProvider';
 const AdminHome = () => {
-  // const navigate = useNavigate();
-  // const { userToken } = useStateContext();
-  // useEffect(() => {
-  //   if (userToken) {
-  //     navigate('/admin/*');
-  //   } else {
-  //     navigate('/login');
-  //   }
-  // }, [userToken, navigate]);
-
   return (
     <div>
       <div>

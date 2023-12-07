@@ -16,12 +16,14 @@ import { FaArrowRight } from "react-icons/fa";
 import { Card, CardHeader, Button } from "@material-tailwind/react";
 
 function Home() {
-  const { user, getUser } = useStateContext();
-  useEffect(() => {
-    if (!user) {
-      getUser();
-    }
-  }, []);
+  const { user, getUser, userToken } = useStateContext();
+  // useEffect(() => {
+  //   if (!user) {
+  //     getUser();
+  //   if(userToken)
+    
+  //   }
+  // }, []);
 
   const [category, setCategory] = useState([]);
   useEffect(() => {

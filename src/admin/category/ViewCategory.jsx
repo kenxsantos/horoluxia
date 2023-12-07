@@ -10,12 +10,27 @@ import { IconButton } from "@material-tailwind/react";
 import { Link } from "react-router-dom";
 import { useNavigate } from 'react-router-dom';
 import Swal from "sweetalert2";
+import { useStateContext } from "../../context/ContextProvider";
 const ViewCategory = () => {
   const TABLE_HEAD = ["ID", "Name", "Slug", "Status", "Edit", "Delete"];
   const [categoryList, setCategoryList] = useState([]);
+  
   const navigate = useNavigate();
-  
-  
+  const { user, getUser,setUser, userToken } = useStateContext();
+
+  useEffect(() => {
+    const fetchData = async () => {
+      await getUser(setUser);
+    };
+
+    if (user?.email === "admin@admin.com" && !userToken) {
+      navigate('/login');
+    } else {
+      navigate('/admin/view-category');
+    }
+
+    fetchData();
+  }, [setUser, user?.email,userToken, navigate]);
   useEffect(() => {
     axios.get(`/api/view-category`).then(res=>{{
       if(res.status===200){

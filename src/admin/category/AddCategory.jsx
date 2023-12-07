@@ -10,16 +10,22 @@ import { LuAsterisk } from "react-icons/lu";
 import { useNavigate } from "react-router-dom";
 import { useStateContext } from "../../context/ContextProvider";
 const AddCategory = () => {
-  // const navigate = useNavigate();
-  // const { userToken } = useStateContext();
+  const navigate = useNavigate();
+  const { user, getUser,setUser, userToken } = useStateContext();
 
-  // useEffect(() => {
-  //   if (!userToken) {
-  //     navigate('/login');
-  //   } else {
-  //     navigate('/admin');
-  //   }
-  // }, [userToken, navigate]);
+  useEffect(() => {
+    const fetchData = async () => {
+      await getUser(setUser);
+    };
+
+    if (user?.email === "admin@admin.com" && !userToken) {
+      navigate('/login');
+    } else {
+      navigate('/admin/add-category');
+    }
+
+    fetchData();
+  }, [setUser, user?.email, navigate]);
   const [allcheckbox, setCheckbox] = useState([]);
   const [productImage, setProductImage] = useState([]);
   const [error_list, setErrors] = useState([]);
@@ -143,8 +149,8 @@ const AddCategory = () => {
               </div>
               <div className="w-96">
                 <Input
-                  label="Meta Keywords"
-                  name="meta_keywords"
+                  label="Meta Keyword"
+                  name="meta_keyword"
                   onChange={handleInput}
                   value={categoryInput.meta_keyword}
                 />

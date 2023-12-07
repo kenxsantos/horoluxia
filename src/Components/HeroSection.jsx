@@ -19,27 +19,21 @@ import Add13 from "../assets/Pictures/Add13.jpg";
 import Add14 from "../assets/Pictures/Add14.jpg";
 import Add15 from "../assets/Pictures/Add15.jpg";
 import Add16 from "../assets/Pictures/Add16.jpg";
-
 const HeroSection = () => {
   return (
     <section className="w-full grid p-8 grid-cols-1 md:grid-cols-2 items-center gap-8 max-w-6xl mx-auto mb-12 bg-[#FBF0E4]">
       <div>
         <h3 className="text-2xl md:text-6xl" id="HeroTitle">
           Grab Up To 50% Off On Selected Watch
+          
         </h3>
-        <p
-          className="text-base md:text-lg text-slate-700 my-4 md:my-6 font-poppins"
-         
-        >
+        <p className="text-base md:text-lg text-slate-700 my-4 md:my-6 font-poppins">
           Here at Horoluxia we have a wide range of watches for you to choose
           from.
+          <br />
         </p>
         <Link path="/limited-edition">
-        <Button
-          className="rounded-full px-10  font-poppins"
-        >
-          Buy Now
-        </Button>
+          <Button className="rounded-full px-10  font-poppins">Buy Now</Button>
         </Link>
       </div>
       <ShuffleGrid />

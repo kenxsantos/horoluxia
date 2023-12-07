@@ -3,7 +3,7 @@ import { useState } from "react";
 import { createContext } from "react";
 import axios from "../api/axios";
 import Swal from "sweetalert2";
-import { useNavigate } from "react-router-dom";
+
 
 const StateContext = createContext({
   currentUser: {},
@@ -12,18 +12,15 @@ const StateContext = createContext({
   setUserToken: () => {},
 });
 
-export const ContextProvider = ({ children }) => {
+export const ContextProvider = ({ children, navigate  }) => {
   const [user, setUser] = useState(null);
-  // const [sey, setCurrentUser] = useState({});
   const [userToken, _setUserToken] = useState(
     localStorage.getItem("auth_token") || ""
   );
   const [errors, setErrors] = useState([]);
-  const navigate = useNavigate();
-  // const [status, setStatus] = useState(null);
+
 
   const csrf = () => axios.get("/sanctum/csrf-cookie");
-
   const setUserToken = (token) => {
     if (token) {
       localStorage.setItem("auth_token", token);
@@ -44,7 +41,7 @@ export const ContextProvider = ({ children }) => {
       .then(({ data }) => {
         setUser(data.user);
         setUserToken(data.token);
-        if(data.user?.email === "admin@test.com"){ 
+        if(data.user?.email === "admin@admin.com"){ 
           new Swal({
             title: "Success",
             text: "Admin",
@@ -52,7 +49,7 @@ export const ContextProvider = ({ children }) => {
             showConfirmButton: false,
             timer: 1500,
           });
-          navigate("/admin/dashboard");
+          navigate("/admin");
         }else{
           new Swal({
             title: "Success",
@@ -148,6 +145,7 @@ export const ContextProvider = ({ children }) => {
         errors,
         setErrors,
         csrf,
+        navigate
       }}
     >
       {children}

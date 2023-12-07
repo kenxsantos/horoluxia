@@ -1,19 +1,33 @@
 import React, { useEffect, useState } from "react";
 import { MdEdit } from "react-icons/md";
-import { MdDelete } from "react-icons/md";
-import { IconButton } from "@material-tailwind/react";
 import { Link } from "react-router-dom";
 import Sidebar from "../components/Sidebar";
 import { Button } from "@material-tailwind/react";
 import { IoMdAdd } from "react-icons/io";
 import { Card, Typography } from "@material-tailwind/react";
 import axios from "../../api/axios";
-import Swal from "sweetalert2";
+import { useNavigate } from "react-router-dom";
+import { useStateContext } from "../../context/ContextProvider";
 const ViewProduct = () => {
   var ProdStatus = '';
   const TABLE_HEAD = ["ID", "Category Name", "Product Name", "Selling Price", "Image", "Edit", "Status"];
   const [viewProduct, setViewProduct] = useState([]);
+  const navigate = useNavigate();
+  const { user, getUser,setUser } = useStateContext();
 
+  useEffect(() => {
+    const fetchData = async () => {
+      await getUser(setUser);
+    };
+
+    if (user?.email === "admin@admin.com") {
+      navigate('admin/*');
+    } else {
+      navigate('/login');
+    }
+
+    fetchData();
+  }, [setUser, user?.email, navigate]);
   useEffect(() => {
     axios.get(`/api/view-product`).then(res=>{{
       if(res.data.status===200){
