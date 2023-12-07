@@ -1,0 +1,56 @@
+@import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@800&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Libre+Baskerville&display=swap');
+
+.header {
+  padding: 10px;
+  text-align: center;
+  background: black;
+  color: white;
+  font-size: 10px;
+  font-family: 'Libre Baskerville', serif;
+  height: 50px; /* This will make the header 50px tall */
+}
+
+.Countdown {
+  background-color: black;
+  color: white;
+  font-size: 14px;
+  font-family: sans-serif;
+  max-height: 50px;
+  overflow-y: hidden;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+}
+.titleHead{
+  font-family: 'DM Serif Display, serif'
+}
+.ulti {
+  background-color: #FFFFF0;
+}
+
+
+#Fonts {
+  font-family: 'Cinzel', serif;
+}
+
+
+.logo {
+  height: 100px;
+}
+
+.Title {
+  font-size: 50px;
+  font-family: 'Cinzel', serif;
+  color: black;
+  text-align: center;
+}
+
+#HeroTitle{
+  font-family: 'Libre Baskerville', serif;
+}
+
+
+
+
