@@ -1,6 +1,6 @@
 import Axios from "axios";
 const axiosInstance = Axios.create({
-    baseURL: 'http://localhost:8000',
+    baseURL: 'https://horoluxia.vercel.app',
     headers: {
         'Content-Type': 'application/json',
         'Content-Type': 'multipart/form-data',
