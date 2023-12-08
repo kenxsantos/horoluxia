@@ -100,7 +100,7 @@ function Men() {
               <CardBody className="p-2">
                 <div className="flex flex-col items-start">
                   <Typography color="black" className="font-poppins">
-                    Nen's Youthful Watch
+                    Men's Youthful Watch
                   </Typography>
                   <Typography color="black" className="font-poppins">
                     Horoluxia

@@ -22,25 +22,25 @@ import routes from "./routes/routes";
 function App() {
   return (
     <ContextProvider>
-      <Router>
-        <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path="/LogIn" element={<LogIn />} />
-          <Route path="/SignUp" element={<SignUp />} />
-          <Route path="/women" element={<Women />} />
-          <Route path="/forgot-password" element={<ForgotPassword />} />
-          <Route path="/password-reset/:token" element={<ResetPassword />} />
-          <Route path="/cart" element={<Cart />} />
-          <Route path="/checkout" element={<Checkout />} />
-          <Route path="/thankyou" element={<Thankyou />} />
-          <Route path="/:slug" element={<ViewProduct />} />
-          <Route
-            path="/:category_slug/:product_slug"
-            element={<ProductDetail />}
-          />
-          <Route path="/admin/*" element={<AdminHome />} />
-        </Routes>
-      </Router>
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/LogIn" element={<LogIn />} />
+        <Route path="/SignUp" element={<SignUp />} />
+        <Route path="/women" element={<Women />} />
+        <Route path="/forgot-password" element={<ForgotPassword />} />
+        <Route path="/password-reset/:token" element={<ResetPassword />} />
+        <Route path="/cart" element={<Cart />} />
+        <Route path="/checkout" element={<Checkout />} />
+        <Route path="/thankyou" element={<Thankyou />} />
+        <Route path="/:slug" element={<ViewProduct />} />
+        <Route
+          path="/:category_slug/:product_slug"
+          element={<ProductDetail />}
+        />
+        <Route path="/admin/*" element={<AdminHome />} />
+      </Routes>
+      <NewsLetter />
+      <Footer />
     </ContextProvider>
   );
 }

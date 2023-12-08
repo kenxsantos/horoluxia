@@ -14,20 +14,6 @@ const ViewProduct = () => {
   const [viewProduct, setViewProduct] = useState([]);
   const navigate = useNavigate();
   const { user, getUser,setUser } = useStateContext();
-
-  useEffect(() => {
-    const fetchData = async () => {
-      await getUser(setUser);
-    };
-
-    if (user?.email === "admin@admin.com") {
-      navigate('admin/*');
-    } else {
-      navigate('/login');
-    }
-
-    fetchData();
-  }, [setUser, user?.email, navigate]);
   useEffect(() => {
     axios.get(`/api/view-product`).then(res=>{{
       if(res.data.status===200){

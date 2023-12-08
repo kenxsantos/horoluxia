@@ -19,7 +19,12 @@ import Add13 from "../assets/Pictures/Add13.jpg";
 import Add14 from "../assets/Pictures/Add14.jpg";
 import Add15 from "../assets/Pictures/Add15.jpg";
 import Add16 from "../assets/Pictures/Add16.jpg";
+import { useNavigate } from "react-router-dom";
 const HeroSection = () => {
+  const navigate = useNavigate();
+  const handleClick =  () => {
+    navigate("/limited-edition")
+  }
   return (
     <section className="w-full grid p-8 grid-cols-1 md:grid-cols-2 items-center gap-8 max-w-6xl mx-auto mb-12 bg-[#FBF0E4]">
       <div>
@@ -32,9 +37,7 @@ const HeroSection = () => {
           from.
           <br />
         </p>
-        <Link path="/limited-edition">
-          <Button className="rounded-full px-10  font-poppins">Buy Now</Button>
-        </Link>
+          <Button className="rounded-full px-10  font-poppinsf" onClick={handleClick}>Buy Now</Button>
       </div>
       <ShuffleGrid />
     </section>

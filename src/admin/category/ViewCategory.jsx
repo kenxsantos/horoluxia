@@ -16,21 +16,7 @@ const ViewCategory = () => {
   const [categoryList, setCategoryList] = useState([]);
   
   const navigate = useNavigate();
-  const { user, getUser,setUser, userToken } = useStateContext();
 
-  useEffect(() => {
-    const fetchData = async () => {
-      await getUser(setUser);
-    };
-
-    if (user?.email === "admin@admin.com" && !userToken) {
-      navigate('/login');
-    } else {
-      navigate('/admin/view-category');
-    }
-
-    fetchData();
-  }, [setUser, user?.email,userToken, navigate]);
   useEffect(() => {
     axios.get(`/api/view-category`).then(res=>{{
       if(res.status===200){

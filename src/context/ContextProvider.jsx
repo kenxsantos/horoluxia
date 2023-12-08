@@ -3,8 +3,7 @@ import { useState } from "react";
 import { createContext } from "react";
 import axios from "../api/axios";
 import Swal from "sweetalert2";
-
-
+import { useNavigate } from "react-router-dom";
 const StateContext = createContext({
   currentUser: {},
   userToken: null,
@@ -12,14 +11,13 @@ const StateContext = createContext({
   setUserToken: () => {},
 });
 
-export const ContextProvider = ({ children, navigate  }) => {
+export const ContextProvider = ({ children  }) => {
+  const navigate = useNavigate();
   const [user, setUser] = useState(null);
   const [userToken, _setUserToken] = useState(
     localStorage.getItem("auth_token") || ""
   );
   const [errors, setErrors] = useState([]);
-
-
   const csrf = () => axios.get("/sanctum/csrf-cookie");
   const setUserToken = (token) => {
     if (token) {

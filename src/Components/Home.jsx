@@ -44,25 +44,12 @@ function Home() {
         <HeroSection />
         <SearchItem />
       </section>
+      <br />
+      <br />
       <div>
         {category.map((item, idx) => {
           return (
-            <div className="w-full max-w-6xl mx-auto mb-12" key={idx}>
-              <div className="flex justify-between items-center">
-                <h1 className="text-4xl my-12 mb-8 font-extrabold font-horoluxia">
-                  {item.name}
-                </h1>
-                <Link to={`/${item.slug}`}>
-                  <Button
-                    variant="outlined"
-                    type="submit"
-                    className="rounded flex items-center justify-center gap-4 text-sm text-left bg-none border-none"
-                  >
-                    View More
-                    <FaArrowRight className="h-4 w-4 text-center" />
-                  </Button>
-                </Link>
-              </div>
+            <div className="w-full max-w-6xl mx-auto m-0" key={idx}>
               <div className="bg-[#FBF0E4]">
                 <Card className="rounded-none p-2">
                   <CardHeader

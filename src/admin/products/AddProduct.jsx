@@ -26,21 +26,6 @@ const AddProduct = () => {
   const [message, setMessage] = useState('');
   const navigate = useNavigate();
   const { user, getUser,setUser } = useStateContext();
-
-  useEffect(() => {
-    const fetchData = async () => {
-      await getUser(setUser);
-    };
-
-    if (user?.email === "admin@admin.com") {
-      navigate('admin/*');
-    } else {
-      navigate('/login');
-    }
-
-    fetchData();
-  }, [setUser, user?.email, navigate]);
-
   useEffect(() => {
     axios.get(`/api/all-category`).then((res) => {
       if (res.data.status === 200) {

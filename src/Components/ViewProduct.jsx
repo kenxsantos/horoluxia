@@ -31,6 +31,7 @@ const ViewProduct = () => {
         if (res.data.status === 200) {
           setProduct(res.data.product_data.product);
           setCategory(res.data.product_data.category);
+          console.log();
         } else if (res.data.status === 400) {
           new Swal({
             title: "Warning",
@@ -62,8 +63,13 @@ const ViewProduct = () => {
   }, [slug, navigate]);
   return (
     <div>
-      <StickyNavbar />
-      <div className="w-full text-center text-bold text-4xl font-cinzelDeco mt-12">
+      <StickyNavbar /> 
+        <img
+          src={`http://localhost:8000/${category.banner}`}
+          alt="card-image"
+          className="rounded-none"
+        />
+        <div className=" w-full max-w-6xl mx-auto w-full text-center text-bold text-4xl font-cinzelDeco mt-12">   
         {category.name}
       </div>
       <div>

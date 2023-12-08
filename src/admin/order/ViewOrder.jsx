@@ -4,6 +4,7 @@ import { Card, Typography } from "@material-tailwind/react";
 import axios from "../../api/axios";
 import { useNavigate } from "react-router-dom";
 import { useStateContext } from "../../context/ContextProvider";
+import { ContextProvider } from "../../context/ContextProvider";
 const ViewOrder = () => {
   const TABLE_HEAD = [
     "ID",
@@ -16,22 +17,6 @@ const ViewOrder = () => {
   ];
   const [viewOrder, setViewOrder] = useState([]);
   const navigate = useNavigate();
-  const { user, getUser,setUser } = useStateContext();
-
-  useEffect(() => {
-    const fetchData = async () => {
-      await getUser(setUser);
-    };
-
-    if (user?.email === "admin@admin.com") {
-      navigate('admin/*');
-    } else {
-      navigate('/login');
-    }
-
-    fetchData();
-  }, [setUser, user?.email, navigate]);
-
   useEffect(() => {
     document.title = "Orders";
     axios.get(`/api/view-order`).then((res) => {
