@@ -129,7 +129,7 @@ const EditProduct = () => {
         });
         navigate("/admin/view-product")
       }
-    });
+    },[id, navigate]);
   };
 
   const handleCheckbox = (e) =>{

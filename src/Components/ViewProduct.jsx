@@ -63,69 +63,71 @@ const ViewProduct = () => {
   }, [slug, navigate]);
   return (
     <div>
-      <StickyNavbar /> 
-        <img
-          src={`http://localhost:8000/${category.banner}`}
-          alt="card-image"
-          className="rounded-none"
-        />
-        <div className=" w-full max-w-6xl mx-auto w-full text-center text-bold text-4xl font-cinzelDeco mt-12">   
-        {category.name}
-      </div>
+      <StickyNavbar />
       <div>
         {product.length === 0 ? (
           <div className="mx-auto flex justify-center text-2xl font-poppins mt-12">
             No product available
           </div>
         ) : (
-          <div className="w-full max-w-6xl mx-auto mb-12 ">
-            <div className="mt-16 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
-              {product.map((item, idx) => (
-                <Card
-                  key={idx}
-                  className="rounded-none p-2 bg-[#FBF0E4] shadow-xl"
-                >
-                  <CardHeader
-                    shadow={false}
-                    floated={false}
-                    className="rounded-none m-0"
+          <div>
+            <img
+              src={`http://localhost:8000/${category.banner}`}
+              alt="card-image"
+              className="rounded-none"
+            />
+            <div className=" w-full max-w-6xl mx-auto w-full text-center text-bold text-4xl font-cinzelDeco mt-12">
+              {category.name}
+            </div>
+            <div className="w-full max-w-6xl mx-auto mb-12 ">
+              <div className="mt-16 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
+                {product.map((item, idx) => (
+                  <Card
+                    key={idx}
+                    className="rounded-none p-2 bg-[#FBF0E4] shadow-xl"
                   >
-                    <img
-                      src={`http://localhost:8000/${item.image}`}
-                      alt="card-image"
-                      className="rounded-none"
-                    />
-                  </CardHeader>
-                  <CardBody className="p-2">
-                    <div className="flex flex-col items-start">
-                      <Typography color="black" className="font-poppins">
-                        {item.name}
-                      </Typography>
-                      <Typography color="black" className="font-poppins">
-                        {item.brand}
-                      </Typography>
-                      <Typography
-                        color="black"
-                        className="font-poppins text-xl font-semibold"
-                      >
-                        {"₱ " + item.selling_price}
-                      </Typography>
-                    </div>
-                  </CardBody>
-                  <CardFooter className="w-full  p-0 flex justify-between">
-                    <Link to={`/${item.category.slug}/${item.slug}`}>
-                      <IconButton variant="outlined" className="border-none">
-                        <CiHeart className="h-8 w-8" />
-                      </IconButton>
-                    </Link>
-                    <Link to={`/${item.category.slug}/${item.slug}`}>
-                      <IconButton variant="outlined" className="border-none">
-                        <CiShoppingCart className="h-8 w-8" />
-                      </IconButton>
-                    </Link>
-                  </CardFooter>
-                </Card>
-              ))}
+                    <CardHeader
+                      shadow={false}
+                      floated={false}
+                      className="rounded-none m-0"
+                    >
+                      <img
+                        src={`http://localhost:8000/${item.image}`}
+                        alt="card-image"
+                        className="rounded-none"
+                      />
+                    </CardHeader>
+                    <CardBody className="p-2">
+                      <div className="flex flex-col items-start">
+                        <Typography color="black" className="font-poppins">
+                          {item.name}
+                        </Typography>
+                        <Typography color="black" className="font-poppins">
+                          {item.brand}
+                        </Typography>
+                        <Typography
+                          color="black"
+                          className="font-poppins text-xl font-semibold"
+                        >
+                          {"₱ " + item.selling_price}
+                        </Typography>
+                      </div>
+                    </CardBody>
+                    <CardFooter className="w-full  p-0 flex justify-between">
+                      <Link to={`/${item.category.slug}/${item.slug}`}>
+                        <IconButton variant="outlined" className="border-none">
+                          <CiHeart className="h-8 w-8" />
+                        </IconButton>
+                      </Link>
+                      <Link to={`/${item.category.slug}/${item.slug}`}>
+                        <IconButton variant="outlined" className="border-none">
+                          <CiShoppingCart className="h-8 w-8" />
+                        </IconButton>
+                      </Link>
+                    </CardFooter>
+                  </Card>
+                ))}
+              </div>
             </div>
           </div>
         )}

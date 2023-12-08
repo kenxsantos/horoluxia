@@ -95,7 +95,7 @@ const EditCategory = () => {
           });
           navigate("/admin/view-category");
         }
-      });
+      },[id, navigate]);
   };
   const handleCheckbox = (e) => {
     e.persist();
@@ -163,7 +163,7 @@ const EditCategory = () => {
               </div>
               <div className="w-96">
                 <Input
-                  label="Meta Keywords"
+                  label="Meta Keyword"
                   name="meta_keyword"
                   onChange={handleInput}
                   value={categoryInput.meta_keyword}

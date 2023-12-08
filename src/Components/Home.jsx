@@ -57,11 +57,14 @@ function Home() {
                     floated={false}
                     className="rounded-none m-0"
                   >
+                    <Link to={`/${item.slug}`}>
+                   
                     <img
                       src={`http://localhost:8000/${item.banner}`}
                       alt="card-image"
                       className="rounded-none"
                     />
+                     </Link>
                   </CardHeader>
                 </Card>
               </div>

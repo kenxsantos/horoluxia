@@ -1,7 +1,6 @@
 import React, { useEffect } from "react";
 import { Routes, Route, Navigate } from "react-router-dom";
 import Dashboard from "../components/Dashboard";
-import Profile from "../components/Profile";
 import AddCategory from "../category/AddCategory";
 import ViewCategory from "../category/ViewCategory";
 import EditCategory from "../category/EditCategory";
@@ -16,7 +15,6 @@ const AdminHome = () => {
         <main>
           <Routes>
             <Route path="dashboard" element={<Dashboard />} />
-            <Route path="profile" element={<Profile />} />
             <Route path="add-category" element={<AddCategory />} />
             <Route path="view-category" element={<ViewCategory />} />
             <Route path="view-category/edit-category/:id" element={<EditCategory />} />

@@ -50,7 +50,8 @@ class ProductController extends Controller
                 }
                 $file = $request->file('image');
                 $extension = $file->getClientOriginalExtension();
-                $filename = time() .'.'.$extension;
+                $originalFilename = $file->getClientOriginalName();
+                $filename =  $originalFilename .'.'.$extension;
                 $file->move('uploads/product/', $filename);
                 $product->image = 'uploads/product/'.$filename;
             };
@@ -135,7 +136,8 @@ class ProductController extends Controller
             if ($request->hasFile('image')){
                 $file = $request->file('image');
                 $extension = $file->getClientOriginalExtension();
-                $filename = time() .'.'.$extension;
+                $originalFilename = $file->getClientOriginalName();
+                $filename =  $originalFilename;
                 if ($file->move('uploads/product/', $filename)) {
                     // File moved successfully
                     $product->image = 'uploads/product/' . $filename;
