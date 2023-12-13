@@ -6,7 +6,11 @@ To run this file:
 4. Run npm run dev
 5. Open new terminal ->  cd laravel
 6. Run cp .env.example .env and php artisan key:generate
-7. Set
+7. Run xampp
+8. Create database in phpmyadmin "horoluxiadb"
+9. In your created database click import tab
+10. Import horoluxiadb.zip
+11. Set
       APP_URL=hhttp://localhost:8000
       FRONTEND_URL=https://horoluxia.vercel.app
       SESSION_DOMAIN=localhost
@@ -19,5 +23,5 @@ To run this file:
       DB_USERNAME=root
       DB_PASSWORD=
    
-8. Run php artisan migrate
-9. Run php artisan serve
+12. Run php artisan migrate
+13. Run php artisan serve
